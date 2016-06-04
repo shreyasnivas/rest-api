@@ -71,6 +71,7 @@ var apiRouter = express.Router();
 
 
 // route for authenticating users
+// POST localhost:8080/api/authenticate
 apiRouter.post('/authenticate', function(req, res){
 
 // find the user
@@ -123,7 +124,8 @@ User.findOne({
 
 apiRouter.use(function(req, res, next){
 	// do logging
-console.log('Somebody just came to our app!');
+
+// console.log('Somebody just came to our app!');
 
 // we'll add more to the middleware in chapter 10
 
@@ -150,6 +152,7 @@ if (token) {
 			next();
 		}
 	});
+
 } else {
 
 	// if there is no token
@@ -161,7 +164,9 @@ if (token) {
 }
 
 
-next(); // make sure we go on to the next route and dont stop here
+// next() to be used here
+
+ //next(); // make sure we go on to the next route and dont stop here
 });
 
 
@@ -297,6 +302,12 @@ apiRouter.route('/users')
 	});
 });
 
+
+
+// api endpoint to get user information
+apiRouter.get('/me', function(req, res){
+	res.send(req.decoded);
+});
 
 
 
