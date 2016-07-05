@@ -1,0 +1,22 @@
+main {
+	padding-top:50px;
+}
+
+/* HEADER
+====================== */
+header .navbar {
+	border-radius:0;
+}
+
+
+
+/* ANIMATIONS
+=================== */
+.spinner {
+	animation:spin 1s infinite;
+}
+
+@keyframes spin {
+from {transform:rotate(0deg);}
+to {transform:rorate(360deg);}
+}
